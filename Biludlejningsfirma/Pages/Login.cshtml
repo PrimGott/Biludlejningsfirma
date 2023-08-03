@@ -1,0 +1,36 @@
+﻿@page
+@model Biludlejningsfirma.Pages.LoginModel
+@{
+}
+@using Biludlejningsfirma.Models;
+
+<form method="post">
+
+    <table>
+        <thead>
+            <tr>
+                <td>Username</td>
+                <td>Password</td>
+            </tr>
+        </thead>
+
+        <tr>
+            <td><input type="text" id="TextFieldUsername" name="TextFieldUsername" /></td>
+            <td><input type="text" id="TextFieldPassword" name="TextFieldPassword" /></td>
+
+            <td><input type="submit" id="btnSubmit" value="Submit" asp-page-handler="LoginSubmit" /></td>
+            @if (Model.istrue)
+            {
+                <td><a class="btn btn-danger" asp-page="./Admin">Admin</a></td>
+            }
+            
+
+
+        </tr>
+
+    </table>
+    @* <table style="margin-top:1%;">
+
+    </table>*@
+
+</form>

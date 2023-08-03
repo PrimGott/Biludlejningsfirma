@@ -1,0 +1,62 @@
+﻿@page
+@model Biludlejningsfirma.Pages.BestillingModel
+@{
+}
+@using Biludlejningsfirma.Models;
+
+
+<form method="post">
+    <table>
+        <thead>
+            <tr>
+                <td>BilType</td>
+                <td>StartDate</td>
+                <td>EndDate</td>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <select name="BiltypeSelect">
+                    @foreach (Biltype item in Model.biltyperliste)
+                    {
+                        <option value="@item.Id,@item.carSize,@item.price">@item.carSize Price @item.price</option>
+                    }
+                </select>
+            </td>
+            <td><input type="date" id="StartDate" name="StartDate" /></td>
+            <td><input type="date" id="EndDate" name="EndDate" /></td>
+            <td>
+                <select name="ExtraSelect">
+                    @foreach (Extra item in Model.extraliste)
+                    {
+                        <option value="@item.Id,@item.addons,@item.price">@item.addons price @item.price</option>
+                    }
+                </select>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <td>Bruger Navn</td>
+                <td>Password</td>
+                <td>Email</td>
+                <td>City</td>
+                <td>PhoneNumber</td>
+            </tr>
+        </thead>
+        <tr>
+            <td><input type="text" id="TextFieldUserName" name="TextFieldUserName" /></td>
+            <td><input type="text" id="TextFieldUserPassword" name="TextFieldUserPassword" /></td>
+            <td><input type="text" id="TextFieldEmail" name="TextFieldEmail" /></td>
+            <td><input type="text" id="TextFieldCity" name="TextFieldCity" /></td>
+            <td><input type="text" id="TextFieldPhoneNumber" name="TextFieldPhoneNumber" /></td>
+        </tr>
+
+    </table>
+    <table style="margin-top:1%;">
+        <td><input type="submit" id="btnSubmit" value="Submit" asp-page-handler="Submit" /></td>
+    </table>
+
+</form>
+
