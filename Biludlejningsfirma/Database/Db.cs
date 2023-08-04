@@ -211,14 +211,30 @@ namespace Biludlejningsfirma.Database
                             int biltyperId = (int)reader["Biltyper_id"];
                             string Car_Size = (string)reader["Car_Size"];
                             decimal CPrice = (decimal)reader["Price"];
+                            Biltype biltype = new Biltype();
+                            biltype.Id = biltyperId;
+                            biltype.carSize = Car_Size;
+                            biltype.price = CPrice;
+
                             int BrugerId = (int)reader["Bruger_id"];
                             string UserName = (string)reader["UserName"];
                             string UserPassword = (string)reader["UserPassword"];
                             string Email = (string)reader["Email"];
                             string City = (string)reader["City"];
                             int PhoneNumber = (int)reader["PhoneNumber"];
+                            Bruger bruger = new Bruger();
+                            bruger.Id = BrugerId;
+                            bruger.userName = UserName;
+                            bruger.userPassword = UserPassword;
+                            bruger.email = Email;
+                            bruger.city = City;
+                            bruger.phoneNumber = PhoneNumber;
+
+
                             DateTime StartDate = (DateTime)reader["StartDate"];
                             DateTime EndDate = (DateTime)reader["EndDate"];
+
+
                             string ExtraId = (string)reader["Extra_id"];
                             string Addons = (string)reader["Addons"];
                             decimal EPrice = (decimal)reader["Price"];
@@ -230,7 +246,8 @@ namespace Biludlejningsfirma.Database
                             //do stuff 
                             list.Add(new Udlejning()
                             {
-                                Id = Id
+                                Id = Id,
+                                
                                 
                                 
                             });
