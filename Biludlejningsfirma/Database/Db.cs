@@ -203,19 +203,35 @@ namespace Biludlejningsfirma.Database
                         while (reader.Read())
                         {
                             int Id = (int)reader["Id"];
-                            string biltyperId = (string)reader["biltyperId"];
-                            string BrugerId = (string)reader["BrugerId"];
-                            string StartDate = (string)reader["StartDate"];
-                            string EndDate = (string)reader["EndDate"];
-                            string ExtraId = (string)reader["ExtraId"];
-                            
 
-                            //biltyperId,BrugerId,StartDate,EndDate,ExtraId
+                            //her henter jeg alle addons med et id hved hjelp af Udlejning_id fra GetAllAddonsWithId
+                            //og tilføjer det til en liste af addons
+
+
+                            int biltyperId = (int)reader["Biltyper_id"];
+                            string Car_Size = (string)reader["Car_Size"];
+                            decimal CPrice = (decimal)reader["Price"];
+                            int BrugerId = (int)reader["Bruger_id"];
+                            string UserName = (string)reader["UserName"];
+                            string UserPassword = (string)reader["UserPassword"];
+                            string Email = (string)reader["Email"];
+                            string City = (string)reader["City"];
+                            int PhoneNumber = (int)reader["PhoneNumber"];
+                            DateTime StartDate = (DateTime)reader["StartDate"];
+                            DateTime EndDate = (DateTime)reader["EndDate"];
+                            string ExtraId = (string)reader["Extra_id"];
+                            string Addons = (string)reader["Addons"];
+                            decimal EPrice = (decimal)reader["Price"];
+
+
+
+                           
 
                             //do stuff 
                             list.Add(new Udlejning()
                             {
                                 Id = Id
+                                
                                 
                             });
                         }
